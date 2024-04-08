@@ -1,0 +1,12 @@
+Formulaire d'ajout de produit
+Formulaire d'ajout de supplier
+Formulaire de vente
+Formulaire d'achat
+
+Affichage des stocks
+Affichage des produits
+Affichage de l'historique avec produit entrant et sortant
+Affichage de l'historique pour un produit en particulier
+Affichage des suppliers
+Affichade des ventes avec prix total
+Affichage des achats avec prix total

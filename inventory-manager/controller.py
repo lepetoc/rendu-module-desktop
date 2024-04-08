@@ -8,7 +8,7 @@ class Controller():
         # print(self.get_products())
         
     def add_product(self, product):
-        print(self.cursor.execute("INSERT INTO products (name, desc, category, price) VALUES (?, ?, ?, ?) RETURNING * ;", product))
+        print(self.cursor.execute("INSERT INTO products (name, desc, category, price) VALUES (?, ?, ?, ?);", product))
         # self.cursor.execute("INSERT INTO stock (product_id, quantity, stock_threshold) VALUES (?, ?, ?, ?)", product)
         self.conn.commit()
         

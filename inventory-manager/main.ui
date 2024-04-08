@@ -34,13 +34,21 @@
        <attribute name="title">
         <string>Stock</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_3"/>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_suppliers">
        <attribute name="title">
         <string>Suppliers</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_4"/>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView_2"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_sales">
        <attribute name="title">
