@@ -2,7 +2,7 @@ from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtWidgets import QApplication, QTableView, QMainWindow
 from PySide6.QtCore import QSortFilterProxyModel
 from ui_mainwindow import Ui_MainWindow
-from controller import Controller
+from model import Model
 import sys
 
 class MainWindow(QMainWindow):
@@ -18,16 +18,16 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         
-        query = QSqlQuery()
+        # query = QSqlQuery()
 
-        model = QSqlTableModel()
-        model.setTable("products")
-        model.setEditStrategy(QSqlTableModel.OnFieldChange)  # Or OnRowChange, OnManualSubmit
-        model.select()
-        proxyModel = QSortFilterProxyModel(self)
-        proxyModel.setSourceModel(model)
+        model_products = QSqlTableModel()
+        model_products.setTable("products")
+        model_products.setEditStrategy(QSqlTableModel.OnFieldChange)  # Or OnRowChange, OnManualSubmit
+        model_products.select()
+        proxy_model_products = QSortFilterProxyModel(self)
+        proxy_model_products.setSourceModel(model_products)
         
-        self.ui.tableView_products.setModel(proxyModel)
+        self.ui.tableView_products.setModel(proxy_model_products)
         self.ui.tableView_products.setSelectionBehavior(QTableView.SelectRows)
         self.ui.tableView_products.setAlternatingRowColors(True)
         self.ui.tableView_products.resizeColumnsToContents()
@@ -35,7 +35,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    controller = Controller()
+    controller = Model()
     window = MainWindow()
     window.show()
 

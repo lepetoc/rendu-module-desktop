@@ -36,7 +36,7 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QTableView" name="tableView"/>
+         <widget class="QTableView" name="tableView_stock"/>
         </item>
        </layout>
       </widget>
@@ -46,7 +46,7 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <widget class="QTableView" name="tableView_2"/>
+         <widget class="QTableView" name="tableView_suppliers"/>
         </item>
        </layout>
       </widget>

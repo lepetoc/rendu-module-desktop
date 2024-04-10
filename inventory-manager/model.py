@@ -1,6 +1,6 @@
 import sqlite3
 
-class Controller():
+class Model():
     def __init__(self):
         self.conn = sqlite3.connect('inventory-manager.sqlite')
         self.cursor = self.conn.cursor()
@@ -8,8 +8,8 @@ class Controller():
         # print(self.get_products())
         
     def add_product(self, product):
-        print(self.cursor.execute("INSERT INTO products (name, desc, category, price) VALUES (?, ?, ?, ?);", product))
-        # self.cursor.execute("INSERT INTO stock (product_id, quantity, stock_threshold) VALUES (?, ?, ?, ?)", product)
+        self.cursor.execute("INSERT INTO products (name, desc, category, price) VALUES (?, ?, ?, ?);", product)
+        self.cursor.execute("INSERT INTO stock (product_id, quantity, stock_threshold) VALUES (?, ?, ?)", (self.cursor.lastrowid, 0, 10))
         self.conn.commit()
         
     def add_supplier(self, supplier):
