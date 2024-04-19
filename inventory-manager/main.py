@@ -1,7 +1,8 @@
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
-from PySide6.QtWidgets import QApplication, QTableView, QMainWindow
+from PySide6.QtWidgets import QApplication, QTableView, QMainWindow, QDialog
 from PySide6.QtCore import QSortFilterProxyModel
 from ui_mainwindow import Ui_MainWindow
+from ui_product_dialog import Ui_Dialog
 from model import Model
 import sys
 
@@ -17,8 +18,8 @@ class MainWindow(QMainWindow):
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        
-        # query = QSqlQuery()
+
+        self.ui.actionProduct.triggered.connect(self.openProductDialog)
 
         model_products = QSqlTableModel()
         model_products.setTable("products")
@@ -32,7 +33,13 @@ class MainWindow(QMainWindow):
         self.ui.tableView_products.setAlternatingRowColors(True)
         self.ui.tableView_products.resizeColumnsToContents()
         self.ui.tableView_products.setSortingEnabled(True)
-
+    
+    def openProductDialog(self):
+        self.dialog = QDialog()
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self.dialog)
+        self.dialog.show()
+        
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     controller = Model()

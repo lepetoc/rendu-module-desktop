@@ -4,7 +4,7 @@ class Model():
     def __init__(self):
         self.conn = sqlite3.connect('inventory-manager.sqlite')
         self.cursor = self.conn.cursor()
-        self.add_product(('Zuchini', 'A vegetable', 'Vegetable', 5.99))
+        # self.add_product(('Zuchini', 'A vegetable', 'Vegetable', 5.99))
         # print(self.get_products())
         
     def add_product(self, product):
@@ -18,4 +18,7 @@ class Model():
     
     def add_sale(self, sale):
         self.cursor.execute("INSERT INTO sales (product_id, quantity, date) VALUES (?, ?, ?)", sale)
+        self.cursor.execute("UPDATE stock SET quantity = quantity - ? WHERE product_id = ?", (sale.quantity, sale.product_id))
         self.conn.commit()
+
+    
