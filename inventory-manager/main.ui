@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>646</width>
-    <height>484</height>
+    <width>838</width>
+    <height>651</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,17 +15,17 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+    <item row="1" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="tab_products">
        <attribute name="title">
         <string>Products</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
-        <item row="0" column="0">
+        <item row="1" column="0">
          <widget class="QTableView" name="tableView_products"/>
         </item>
        </layout>
@@ -36,7 +36,7 @@
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
-         <widget class="QTableView" name="tableView_stock"/>
+         <widget class="QTableWidget" name="tableWidget_stock"/>
         </item>
        </layout>
       </widget>
@@ -45,7 +45,7 @@
         <string>Suppliers</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
+        <item row="1" column="0">
          <widget class="QTableView" name="tableView_suppliers"/>
         </item>
        </layout>
@@ -54,20 +54,36 @@
        <attribute name="title">
         <string>Sales</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_5"/>
+       <layout class="QGridLayout" name="gridLayout_5">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView_sales"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_purchases">
        <attribute name="title">
         <string>Purchases</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_6"/>
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0">
+         <widget class="QTableView" name="tableView_purchases"/>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_history">
        <attribute name="title">
         <string>History</string>
        </attribute>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QTableWidget" name="tableWidget_history"/>
+        </item>
+       </layout>
       </widget>
      </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLineEdit" name="edit_filter"/>
     </item>
    </layout>
   </widget>
@@ -76,13 +92,13 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>646</width>
+     <width>838</width>
      <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichier">
     <property name="title">
-     <string>Fichier</string>
+     <string>Files</string>
     </property>
     <widget class="QMenu" name="menuAdd">
      <property name="title">
@@ -91,8 +107,15 @@
      <addaction name="actionProduct"/>
      <addaction name="actionSupplier"/>
     </widget>
+    <widget class="QMenu" name="menuNew">
+     <property name="title">
+      <string>New</string>
+     </property>
+     <addaction name="actionSale"/>
+     <addaction name="actionPurchase"/>
+    </widget>
     <addaction name="menuAdd"/>
-    <addaction name="separator"/>
+    <addaction name="menuNew"/>
     <addaction name="actionQuit"/>
    </widget>
    <addaction name="menuFichier"/>
@@ -111,6 +134,16 @@
   <action name="actionSupplier">
    <property name="text">
     <string>Supplier</string>
+   </property>
+  </action>
+  <action name="actionSale">
+   <property name="text">
+    <string>Sale</string>
+   </property>
+  </action>
+  <action name="actionPurchase">
+   <property name="text">
+    <string>Purchase</string>
    </property>
   </action>
  </widget>

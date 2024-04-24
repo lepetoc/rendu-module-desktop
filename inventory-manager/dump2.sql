@@ -8,7 +8,7 @@ CREATE TABLE  purchases (
      supplier_id  INTEGER NOT NULL,
      product_id  INTEGER NOT NULL,
      quantity  BIGINT NOT NULL,
-     purchase_date  BIGINT NOT NULL,
+     purchase_date  DATE NOT NULL,
     FOREIGN KEY(supplier_id) REFERENCES suppliers(id),
     FOREIGN KEY(product_id) REFERENCES products(id)
 );
